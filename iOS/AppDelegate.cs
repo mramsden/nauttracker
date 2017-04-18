@@ -3,8 +3,6 @@ using UIKit;
 
 namespace NautTracker.iOS
 {
-	// The UIApplicationDelegate for the application. This class is responsible for launching the
-	// User Interface of the application, as well as listening (and optionally responding) to application events from iOS.
 	[Register("AppDelegate")]
 	public class AppDelegate : UIApplicationDelegate
 	{
@@ -16,10 +14,22 @@ namespace NautTracker.iOS
 			set;
 		}
 
+		InMemoryAstronautRepository _repository;
+
 		public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
 		{
-			// Override point for customization after application launch.
-			// If not required for your application you can safely delete this method
+			_repository = new InMemoryAstronautRepository();
+			_repository.Add(new Astronaut("Oleg Novitskiy", "ISS"));
+			_repository.Add(new Astronaut("Thomas Pesquet", "ISS"));
+			_repository.Add(new Astronaut("Peggy Whitson", "ISS"));
+
+			var astronautsViewModel = new AstronautsViewModel(_repository);
+			var astronautsViewController = new AstronautsViewController(astronautsViewModel);
+
+			var window = new UIWindow(UIScreen.MainScreen.Bounds);
+			window.RootViewController = new UINavigationController(astronautsViewController);
+			window.MakeKeyAndVisible();
+			Window = window;
 
 			return true;
 		}
