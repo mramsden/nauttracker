@@ -36,6 +36,7 @@
   <ItemGroup>
     <Compile Include="AstronautTests.cs" />
     <Compile Include="AstronautRepositoryTests.cs" />
+    <Compile Include="AstronautsViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NautTracker\NautTracker.csproj">
