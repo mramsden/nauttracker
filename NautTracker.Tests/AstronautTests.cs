@@ -15,12 +15,6 @@ namespace NautTracker.Tests
 			Astronaut = new Astronaut(expectedName);
 		}
 
-		[TearDown]
-		public void TearDown()
-		{
-			Astronaut = null;
-		}
-
 		[Test]
 		public void ItHasAName()
 		{
@@ -45,12 +39,6 @@ namespace NautTracker.Tests
 		public void SetUp()
 		{
 			Astronaut = new Astronaut(expectedName, expectedCraft);
-		}
-
-		[TearDown]
-		public void TearDown()
-		{
-			Astronaut = null;
 		}
 
 		[Test]

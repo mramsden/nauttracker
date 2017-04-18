@@ -1,6 +1,6 @@
 ﻿namespace NautTracker
 {
-	public class Astronaut
+	public struct Astronaut
 	{
 		readonly string _name;
 		readonly string _craft;
@@ -8,6 +8,7 @@
 		public Astronaut(string name)
 		{
 			_name = name;
+			_craft = null;
 		}
 
 		public Astronaut(string name, string craft)
